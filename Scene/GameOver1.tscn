@@ -1,0 +1,83 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Video/bloodpixel.webm" type="VideoStream" id=1]
+[ext_resource path="res://blackscreen.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/bloodlust.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Sprites/UI/PlayAgain.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/UI/Quit.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/Menu/GameOver1.gd" type="Script" id=6]
+[ext_resource path="res://Sounds/Death Sound.mp3" type="AudioStream" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 74
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 3 )
+
+[node name="GameOver1" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 642, 362.5 )
+scale = Vector2( 5.28223, 4.96023 )
+texture = ExtResource( 2 )
+
+[node name="VideoPlayer" type="VideoPlayer" parent="."]
+margin_left = -8.0
+margin_top = -7.0
+margin_right = 1291.0
+margin_bottom = 731.0
+stream = ExtResource( 1 )
+autoplay = true
+
+[node name="Label" type="Label" parent="."]
+modulate = Color( 0.972549, 0.14902, 0.0156863, 1 )
+margin_left = 425.0
+margin_top = 179.0
+margin_right = 831.0
+margin_bottom = 324.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "LOL,YOU DIED !"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 503.0
+margin_top = 286.0
+margin_right = 752.0
+margin_bottom = 315.0
+custom_fonts/font = SubResource( 2 )
+text = "becareful of aggresive animals"
+
+[node name="PlayAgain" type="Button" parent="."]
+margin_left = 418.0
+margin_top = 382.0
+margin_right = 526.0
+margin_bottom = 430.0
+
+[node name="Sprite" type="Sprite" parent="PlayAgain"]
+position = Vector2( 54, 24 )
+texture = ExtResource( 4 )
+
+[node name="Quit" type="Button" parent="."]
+margin_left = 717.0
+margin_top = 381.0
+margin_right = 824.0
+margin_bottom = 429.0
+
+[node name="Sprite" type="Sprite" parent="Quit"]
+position = Vector2( 53, 24 )
+texture = ExtResource( 5 )
+
+[node name="Die_Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -10.0
+
+[connection signal="pressed" from="PlayAgain" to="." method="_on_PlayAgain_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]

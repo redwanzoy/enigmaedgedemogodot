@@ -1,0 +1,108 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/AppearingVirgil/Switch.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/AppearingVirgil/Virgil.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/Ally/virgil.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=20]
+extents = Vector2( 75, 9.5 )
+
+[sub_resource type="RectangleShape2D" id=21]
+extents = Vector2( 10.5, 27 )
+
+[sub_resource type="Animation" id=22]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:percent_visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "appearing"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.5, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.0784314 ), Color( 1, 1, 1, 0.117647 ), Color( 1, 1, 1, 0.156863 ), Color( 1, 1, 1, 0.239216 ), Color( 1, 1, 1, 0.364706 ), Color( 1, 1, 1, 0.607843 ), Color( 1, 1, 1, 0.815686 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:percent_visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.157, 0.401, 0.615, 1.0 ]
+}
+
+[node name="VirgilAppear" type="Node2D"]
+position = Vector2( 2, -14 )
+
+[node name="Switch" type="Area2D" parent="."]
+position = Vector2( 171, 98 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Switch"]
+position = Vector2( -65, -93.5 )
+shape = SubResource( 20 )
+
+[node name="Virgil" type="Area2D" parent="."]
+position = Vector2( 205, -7 )
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Virgil"]
+modulate = Color( 1, 1, 1, 0 )
+texture = ExtResource( 3 )
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Virgil"]
+position = Vector2( 0.5, 2 )
+shape = SubResource( 21 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Virgil"]
+anims/RESET = SubResource( 22 )
+anims/appearing = SubResource( 23 )
+
+[node name="Label" type="Label" parent="Virgil"]
+margin_left = 20.0
+margin_top = -35.0
+margin_right = 499.0
+margin_bottom = 30.0
+text = " I am Virgil, the Roman poet. 
+I shall accompany you on th profound journey 
+to the depths of the 9th circles of hell. 
+Where the enigmatic red exclamation marks serve as beacons of guidance."
+align = 1
+valign = 1
+percent_visible = 0.0
+
+[connection signal="Is_ActiveVirgil" from="Switch" to="Virgil" method="_on_Switch_Is_ActiveVirgil"]

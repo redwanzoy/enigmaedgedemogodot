@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/hellsound.mp3-7de699acadd67b022e2998d749b51448.mp3str"
+
+[deps]
+
+source_file="res://Sounds/hellsound.mp3"
+dest_files=[ "res://.import/hellsound.mp3-7de699acadd67b022e2998d749b51448.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/HorseBreathing.mp3-b423cb3273d7afe19d995d2b6c7ccc96.mp3str"
+
+[deps]
+
+source_file="res://Sounds/HorseBreathing.mp3"
+dest_files=[ "res://.import/HorseBreathing.mp3-b423cb3273d7afe19d995d2b6c7ccc96.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

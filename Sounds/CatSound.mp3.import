@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/CatSound.mp3-f06805f99b82ef00da15e19da8b7627a.mp3str"
+
+[deps]
+
+source_file="res://Sounds/CatSound.mp3"
+dest_files=[ "res://.import/CatSound.mp3-f06805f99b82ef00da15e19da8b7627a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
